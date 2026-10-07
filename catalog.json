@@ -1,0 +1,191 @@
+{
+  "brand": "Bait Odyssey Custom Baits",
+  "promos": [
+    "10% OFF \u2014 code BAIT10OFF",
+    "FREE SHIPPING $30+",
+    "VETERAN OWNED & OPERATED",
+    "PROUDLY MADE IN THE USA"
+  ],
+  "products": [
+    {
+      "name": "4\u201d Action Worm",
+      "price": 4.99,
+      "category": "worms",
+      "pack": "10 per pack",
+      "size": "4\u201d",
+      "material": "Plastic",
+      "slug": "4-action-worm"
+    },
+    {
+      "name": "4.0\" KNUCKLE DRAGGER",
+      "price": 4.5,
+      "category": "craws",
+      "pack": "6 per pack",
+      "size": "4\"",
+      "material": "Plastic",
+      "slug": "4-0-knuckle-dragger"
+    },
+    {
+      "name": "7\u201d Mega Speed worm",
+      "price": 6.99,
+      "category": "worms",
+      "pack": "8 per pack",
+      "size": "7\u201d",
+      "material": "Plastic",
+      "slug": "7-mega-speed-worm"
+    },
+    {
+      "name": "4.0\" STINGER",
+      "price": 4.99,
+      "category": "craws",
+      "pack": "6 per pack",
+      "size": "4\"",
+      "material": "Plastic",
+      "slug": "4-0-stinger"
+    },
+    {
+      "name": "Swim Jigs",
+      "price": 5.99,
+      "category": "jigs",
+      "pack": "Hand tied",
+      "size": "\u2014",
+      "material": "Hand tied",
+      "slug": "swim-jigs"
+    },
+    {
+      "name": "The Mustache Classic color",
+      "price": 3.5,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "\u2014",
+      "material": "Plastic",
+      "slug": "the-mustache-classic-color"
+    },
+    {
+      "name": "7\u201d FINESSE WORM Classic Colors",
+      "price": 5.99,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "7\u201d",
+      "material": "Plastic",
+      "slug": "7-finesse-worm-classic-colors"
+    },
+    {
+      "name": "10\u201d Curly Tail Worm Classic Colors",
+      "price": 5.99,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "10\u201d",
+      "material": "Plastic",
+      "slug": "10-curly-tail-worm-classic-colors"
+    },
+    {
+      "name": "5\u201d Stick Bait Classic Colors",
+      "price": 4.99,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "5\u201d",
+      "material": "Plastic",
+      "slug": "5-stick-bait-classic-colors"
+    },
+    {
+      "name": "5.75\u201d Speed worm classic colors",
+      "price": 5.99,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "5.75\u201d",
+      "material": "Plastic",
+      "slug": "5-75-speed-worm-classic-colors"
+    },
+    {
+      "name": "10\u201d Flat tail worm",
+      "price": 6.99,
+      "category": "worms",
+      "pack": "\u2014",
+      "size": "10\u201d",
+      "material": "Plastic",
+      "slug": "10-flat-tail-worm"
+    },
+    {
+      "name": "Lizard Classic Colors",
+      "price": 3.5,
+      "category": "craws",
+      "pack": "\u2014",
+      "size": "\u2014",
+      "material": "Plastic",
+      "slug": "lizard-classic-colors"
+    },
+    {
+      "name": "Speed Craw Classic colors",
+      "price": 3.5,
+      "category": "craws",
+      "pack": "\u2014",
+      "size": "\u2014",
+      "material": "Plastic",
+      "slug": "speed-craw-classic-colors"
+    },
+    {
+      "name": "Rocket Grub Classic Colors",
+      "price": 3.5,
+      "category": "craws",
+      "pack": "\u2014",
+      "size": "\u2014",
+      "material": "Plastic",
+      "slug": "rocket-grub-classic-colors"
+    },
+    {
+      "name": "3.5\u201d Bed Bug Sample Pack",
+      "price": 3.5,
+      "category": "craws",
+      "pack": "Sample pack",
+      "size": "3.5\u201d",
+      "material": "Plastic",
+      "slug": "3-5-bed-bug-sample-pack"
+    },
+    {
+      "name": "Bedding Fish Bundle",
+      "price": 10.5,
+      "category": "craws",
+      "pack": "Bundle",
+      "size": "\u2014",
+      "material": "Plastic",
+      "slug": "bedding-fish-bundle"
+    },
+    {
+      "name": "3.8\" Paddle Tail",
+      "price": 5.99,
+      "category": "swimbaits",
+      "pack": "\u2014",
+      "size": "3.8\"",
+      "material": "Plastic",
+      "slug": "3-8-paddle-tail"
+    },
+    {
+      "name": "5\u201d \u201cThe Duke\u201d",
+      "price": 5.99,
+      "category": "swimbaits",
+      "pack": "\u2014",
+      "size": "5\u201d",
+      "material": "Plastic",
+      "slug": "5-the-duke"
+    },
+    {
+      "name": "4\u201d Pin Tail",
+      "price": 5.99,
+      "category": "swimbaits",
+      "pack": "\u2014",
+      "size": "4\u201d",
+      "material": "Plastic",
+      "slug": "4-pin-tail"
+    },
+    {
+      "name": "Rags",
+      "price": 2.99,
+      "category": "misc",
+      "pack": "\u2014",
+      "size": "\u2014",
+      "material": "\u2014",
+      "slug": "rags"
+    }
+  ]
+}

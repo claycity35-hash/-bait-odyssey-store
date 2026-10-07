@@ -1,13 +1,12 @@
-# Bait Odyssey — New Storefront
-This is the new storefront foundation for Bait Odyssey Custom Baits.
+# Bait Odyssey Fresh Re-Manufacture
 
-Locked requirements:
-- Exact Bait Odyssey branding assets supplied by the owner
-- Veteran Owned & Operated / Proudly Made in the USA messaging
-- Real live-store catalog names/prices
-- No AI-generated or substitute product photos
-- New product-page and cart shell
-- Mobile-first design
-- Existing commerce backend remains the source of truth for inventory/order processing
+Fresh build created from scratch.
 
-The exact individual product image assets and live commerce actions should be wired from the current store before this replaces production.
+## Verified assets used
+- `assets/bait-odyssey-hero.jpg` — supplied Bait Odyssey branded fishing scene.
+- `assets/bait-odyssey-logo.png` — supplied Bait Odyssey logo.
+
+## Important
+No third-party or AI-generated product photos are presented as Bait Odyssey product photography. The product-photo slots remain explicitly marked until an exact verified photo is available for each product.
+
+Catalog names/prices are based on the live Bait Odyssey catalog.
