@@ -1,34 +1,18 @@
 
-const DATA_URL='catalog.json';
-let catalog=[];
-let cart=JSON.parse(localStorage.getItem('baitOdysseyCart')||'[]');
+let cart=JSON.parse(localStorage.getItem('boCart')||'[]');
+const money=n=>'$'+Number(n).toFixed(2);
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function save(){localStorage.setItem('baitOdysseyCart',JSON.stringify(cart));updateCartCount()}
-function updateCartCount(){document.querySelectorAll('[data-cart-count]').forEach(x=>x.textContent=cart.reduce((a,i)=>a+i.qty,0))}
-function add(slug){const p=catalog.find(x=>x.slug===slug);if(!p)return;const i=cart.find(x=>x.slug===slug);i?i.qty++:cart.push({slug,qty:1});save();alert(`${p.name} added to bag.`)}
-function productCard(p){
- return `<article class="card"><div class="photo-missing">EXACT PRODUCT PHOTO<br>FROM Bait Odyssey CATALOG</div><div class="card-body"><h3>${esc(p.name)}</h3><div class="price">$${p.price.toFixed(2)}</div><div class="meta">${esc(p.pack)} · ${esc(p.size)}</div><a class="btn secondary" href="product.html?id=${encodeURIComponent(p.slug)}">View product</a></div></article>`
+function count(){document.querySelectorAll('[data-count]').forEach(x=>x.textContent=cart.reduce((n,i)=>n+i.qty,0))}
+function save(){localStorage.setItem('boCart',JSON.stringify(cart));count()}
+function add(i){const p=BAIT_ODYSSEY_CATALOG[i];let x=cart.find(x=>x.i===i);x?x.qty++:cart.push({i,qty:1});save();alert(p.name+' added to bag.')}
+function cards(list){return list.map((p,i)=>`<article class="card"><div class="photo"><b>PRODUCT PHOTO<br><span class="muted">Verified Bait Odyssey photo required</span></b></div><div class="card-body"><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><div class="small">${esc(p.qty)} · ${esc(p.size)} · ${esc(p.material)}</div><a class="btn secondary" href="product.html?i=${i}">VIEW PRODUCT</a></div></article>`).join('')}
+function render(){count();const page=document.body.dataset.page;
+ if(page==='home'){document.querySelector('#featured').innerHTML=cards(BAIT_ODYSSEY_CATALOG.slice(0,5))}
+ if(page==='shop'){document.querySelector('#products').innerHTML=cards(BAIT_ODYSSEY_CATALOG)}
+ if(page==='cat'){const c=document.body.dataset.cat;document.querySelector('#products').innerHTML=cards(BAIT_ODYSSEY_CATALOG.filter(p=>p.category===c))}
+ if(page==='product'){const i=Number(new URLSearchParams(location.search).get('i'));const p=BAIT_ODYSSEY_CATALOG[i]||BAIT_ODYSSEY_CATALOG[0];document.querySelector('#product').innerHTML=`<div class="detail"><div class="detail-photo"><b>EXACT Bait Odyssey product photo<br><span class="muted">No substitute or AI image is used.</span></b></div><div><span class="pill">${esc(p.category.toUpperCase())}</span><h1>${esc(p.name)}</h1><div class="big">${money(p.price)}</div><div class="specs"><div class="spec"><small>Quantity</small><b>${esc(p.qty)}</b></div><div class="spec"><small>Dimensions</small><b>${esc(p.size)}</b></div><div class="spec"><small>Material</small><b>${esc(p.material)}</b></div><div class="spec"><small>Made</small><b>USA</b></div></div><button class="btn primary" onclick="add(${i})">ADD TO BAG</button> <a class="btn secondary" href="${p.live}" target="_blank" rel="noopener">LIVE PRODUCT / OPTIONS</a></div></div>`}
+ if(page==='cart'){cartRender()}
 }
-async function boot(){
- catalog=(await fetch(DATA_URL).then(r=>r.json())).products;
- updateCartCount();
- const path=location.pathname.split('/').pop();
- if(path==='shop.html'||path==='worms.html'||path==='craws.html'||path==='swim-baits.html'){
-   const c=path==='worms.html'?'worms':path==='craws.html'?'craws':path==='swim-baits.html'?'swimbaits':null;
-   const list=c?catalog.filter(p=>p.category===c):catalog;
-   document.querySelector('#productGrid').innerHTML=list.map(productCard).join('');
- }
- if(path==='product.html'){
-   const p=catalog.find(x=>x.slug===new URLSearchParams(location.search).get('id'))||catalog[0];
-   document.querySelector('#detail').innerHTML=`<div class="detail-grid"><div class="detail-photo"><div><b>EXACT PRODUCT PHOTO</b><br><br>This slot is reserved for the verified Bait Odyssey photo for this product. No AI or third-party photo is used.</div></div><div class="detail-copy"><span class="eyebrow">${esc(p.category.toUpperCase())}</span><h1>${esc(p.name)}</h1><div class="bigprice">$${p.price.toFixed(2)}</div><div class="specs"><div class="spec"><small>Pack / format</small><b>${esc(p.pack)}</b></div><div class="spec"><small>Size</small><b>${esc(p.size)}</b></div><div class="spec"><small>Material</small><b>${esc(p.material)}</b></div><div class="spec"><small>Made</small><b>USA</b></div></div><p>Custom-made fishing bait from Bait Odyssey. Choose your options on the live catalog when ordering.</p><button class="btn primary" onclick="add('${esc(p.slug)}')">Add to bag</button></div></div>`;
- }
- if(path==='cart.html') renderCart();
-}
-function renderCart(){
- const el=document.querySelector('#cartContent');
- if(!cart.length){el.innerHTML='<div class="empty"><h2>Your bag is empty.</h2><p>Add Bait Odyssey custom baits to build your order.</p><a class="btn primary" href="shop.html">Shop baits</a></div>';return}
- let total=0;
- el.innerHTML=cart.map(i=>{const p=catalog.find(x=>x.slug===i.slug);const line=p.price*i.qty;total+=line;return `<div class="cart-row"><div><b>${esc(p.name)}</b><div class="meta">$${p.price.toFixed(2)} each</div></div><div class="qty"><button onclick="change('${p.slug}',-1)">−</button><b>${i.qty}</b><button onclick="change('${p.slug}',1)">+</button></div><b>$${line.toFixed(2)}</b></div>`}).join('')+`<div style="text-align:right;margin-top:24px"><h2>Total $${total.toFixed(2)}</h2><p class="meta">Checkout is completed through Bait Odyssey's live commerce system so inventory and orders stay synchronized.</p><a class="btn primary" href="https://baitodyssey.com/products" target="_blank" rel="noopener">Continue to live checkout</a></div>`;
-}
-function change(slug,n){const i=cart.find(x=>x.slug===slug);if(!i)return;i.qty+=n;if(i.qty<=0)cart=cart.filter(x=>x.slug!==slug);save();renderCart()}
-document.addEventListener('DOMContentLoaded',boot);
+function cartRender(){const e=document.querySelector('#cart');if(!cart.length){e.innerHTML='<div class="empty"><h2>Your bag is empty.</h2><a class="btn primary" href="shop.html">SHOP BAITS</a></div>';return}let t=0;e.innerHTML=cart.map(x=>{let p=BAIT_ODYSSEY_CATALOG[x.i],v=p.price*x.qty;t+=v;return `<div class="cartrow"><div><b>${esc(p.name)}</b><div class="small">${money(p.price)} each</div></div><div class="qty"><button onclick="chg(${x.i},-1)">−</button> ${x.qty} <button onclick="chg(${x.i},1)">+</button></div><b>${money(v)}</b></div>`}).join('')+`<div style="text-align:right;margin-top:25px"><h2>Total ${money(t)}</h2><p class="muted">Product options and final checkout remain synchronized with the live Bait Odyssey store.</p><a class="btn primary" href="https://baitodyssey.com/products" target="_blank" rel="noopener">CONTINUE TO LIVE CHECKOUT</a></div>`}
+function chg(i,n){let x=cart.find(x=>x.i===i);if(!x)return;x.qty+=n;if(x.qty<1)cart=cart.filter(x=>x.i!==i);save();cartRender()}
+document.addEventListener('DOMContentLoaded',render)

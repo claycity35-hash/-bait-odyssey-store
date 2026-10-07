@@ -1,12 +1,17 @@
-# Bait Odyssey Fresh Re-Manufacture
+# Bait Odyssey — Fresh Re-manufacture V3
 
-Fresh build created from scratch.
+Freshly generated from scratch. No previous HTML/CSS/JS files were copied.
 
-## Verified assets used
-- `assets/bait-odyssey-hero.jpg` — supplied Bait Odyssey branded fishing scene.
-- `assets/bait-odyssey-logo.png` — supplied Bait Odyssey logo.
+Verified supplied assets:
+- assets/bait-odyssey-logo.png
+- assets/bait-odyssey-hero.jpg
 
-## Important
-No third-party or AI-generated product photos are presented as Bait Odyssey product photography. The product-photo slots remain explicitly marked until an exact verified photo is available for each product.
+Catalog:
+- current Bait Odyssey product names/prices/details gathered from the live site
+- each product retains its live product URL for exact colors/options/checkout
 
-Catalog names/prices are based on the live Bait Odyssey catalog.
+Important:
+- no AI product photography
+- no third-party bait photography
+- no business-card image used as the hero
+- exact individual product-photo slots are intentionally not populated until the exact Bait Odyssey photos are available
